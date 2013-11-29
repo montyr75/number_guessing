@@ -1,0 +1,32 @@
+.box-container {
+  width: 475px;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 10px;
+}
+
+.btn {
+  cursor: default !important;
+}
+
+#guess-input {
+  width: 50px;
+  text-align: right;
+  margin: 0;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.numeric-data {
+  text-align: right !important;
+}
+
+.instructions {
+  font-weight: bold;
+}
+
+form {
+  margin-top: 10px;
+})

@@ -1,0 +1,36 @@
+<polymer-element name="main-view">
+  <template>
+    <style>
+      @import 'views/main/main_view.css';
+    </style>
+
+    <h1>Number Guessing</h1>
+      
+    <div class="box-container">
+      <p class="instructions">I'm thinking of a number between {{MIN_NUM}} and {{MAX_NUM}}, inclusive.</p>
+      <p class="instructions" style="margin-top: -10px;">Can you guess it?</p>
+      
+      <table class="table table-bordered" style="width: 130px;">
+        <tbody>
+          <tr>
+            <td style="width: 90px;">Guesses</td>
+            <td class="numeric-data">{{guesses}}</td>
+          </tr>
+          <tr>
+            <td>Last Guess</td>
+            <td class="numeric-data">{{lastGuess}}</td>
+          </tr>
+        </tbody>
+      </table>
+       
+      <p id="game-state" class="label {{messageState}}">{{gameStateMessage}}</p>
+     
+      <form class="form-inline" on-submit="{{submit}}">
+        <input id="guess-input" type="text" class="form-control input-sm" value="{{guessInput | asInteger}}" disabled?="{{disableInput}}" autocomplete="off" autofocus>
+        <button id="guess-btn" class="btn btn-sm btn-primary" on-click="{{buttonClicked}}">{{btnText}}</button>
+      </form>
+    </div>
+  </template>
+  
+  <script type="application/dart" src="main_view.dart"></script>
+</polymer-element>

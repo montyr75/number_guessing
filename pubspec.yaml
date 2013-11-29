@@ -1,0 +1,7 @@
+name: number_guessing
+description: A number guessing game.
+dependencies:
+    polymer: any
+transformers:
+- polymer:
+    entry_points: web/index.html
