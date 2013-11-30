@@ -5,7 +5,6 @@ import "dart:math";
 import 'package:polymer/polymer.dart';
 import '../../utils/filters.dart';
 import 'package:polymer_expressions/filter.dart';
-import 'dart:async';
 
 @CustomTag('main-view')
 class MainView extends PolymerElement {
@@ -63,7 +62,7 @@ class MainView extends PolymerElement {
     disableInput = false;
 
     // need to relinquish control to Dart event loop before "disableInput" will take effect
-    Timer.run(resetInput);
+    async((_) => resetInput());
 
     // set random number to guess
     _randomNumber = new Random().nextInt(MAX_NUM) + MIN_NUM;
