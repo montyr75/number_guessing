@@ -61,7 +61,7 @@ class MainView extends PolymerElement {
     btnText = GUESS;
     disableInput = false;
 
-    // need to relinquish control to Dart event loop before "disableInput" will take effect
+    // need to relinquish control to Dart event loop before "disableInput" change will take effect
     async((_) => resetInput());
 
     // set random number to guess
