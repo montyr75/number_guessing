@@ -6,6 +6,8 @@ import 'package:polymer/polymer.dart';
 import '../../utils/filters.dart';
 import 'package:polymer_expressions/filter.dart';
 
+// @CustomTag metatag ties MainView class to <main-view> HTML elements
+// an instance of MainView will be created for each use of the <main-view> HTML element
 @CustomTag('main-view')
 class MainView extends PolymerElement {
 
@@ -26,24 +28,27 @@ class MainView extends PolymerElement {
   static const String PLAY_AGAIN = "Play Again";
 
   // game data
-  int _randomNumber;
+  int _randomNumber;      // the number to be guessed
 
   // UI data
-  @observable int guessInput;
-  @observable String gameStateMessage;
-  @observable String messageState;
-  @observable String btnText;
-  @observable String btnState;
-  @observable bool disableInput;
-  @observable int guesses;
-  @observable String lastGuess;
+  @observable int guessInput;           // the user's guess
+  @observable String gameStateMessage;  // text to display to user regarding game's state
+  @observable String messageState;      // CSS class to apply to game state message display
+  @observable String btnText;           // the label of the game's only button
+  @observable String btnState;          // CSS class to apply to the game's button
+  @observable bool disableInput;        // when true, input box is disabled
+  @observable int guesses;              // to count the user's guesses
+  @observable String lastGuess;         // store the user's last guess for display purposes
 
   // filters and transformers can be referenced as fields
   final Transformer asInteger = new StringToInt();
 
+  // Polymer elements are instantiated with the .created named constructor
   MainView.created() : super.created();
 
-  void enteredView() {
+  // this function is called when the Polymer element enters the view
+  // the @override metatag marks it (optionally) as an overridden inherited function
+  @override void enteredView() {
     super.enteredView();
     print("MainView::enteredView()");
 
@@ -64,12 +69,13 @@ class MainView extends PolymerElement {
     // need to relinquish control to Dart event loop before "disableInput" change will take effect
     async((_) => resetInput());
 
-    // set random number to guess
+    // set random number for the user to guess
     _randomNumber = new Random().nextInt(MAX_NUM) + MIN_NUM;
 
     print("Picked: $_randomNumber");
   }
 
+  // Polymer event handlers always have this signature
   void buttonClicked(Event event, var detail, Element target) {
     print("MainView::buttonClicked()");
 
@@ -84,6 +90,7 @@ class MainView extends PolymerElement {
     print("MainView::processGuess()");
 
     // throw error if there's a problem with input
+    // our asInteger Transformer returns null if the input is not a valid integer
     if (guessInput == null) {
       gameStateMessage = INPUT_ERROR;
       messageState = ERROR_MESSAGE_STATE;
@@ -121,6 +128,7 @@ class MainView extends PolymerElement {
   }
 
   void resetInput() {
+    // get a reference to element with "guess-input" ID, then clear its value and set keyboard focus on it
     $['guess-input'] as InputElement
       ..value = ""
       ..focus();
@@ -128,6 +136,7 @@ class MainView extends PolymerElement {
     guessInput = null;
   }
 
+  // prevent a <form> submit from reloading the app
   void submit(Event event, var detail, Element target) {
     event.preventDefault();
   }
