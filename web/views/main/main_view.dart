@@ -1,7 +1,7 @@
 library main_view;
 
 import 'dart:html';
-import "dart:math";
+import 'dart:math';
 import 'package:polymer/polymer.dart';
 import '../../utils/filters.dart';
 import 'package:polymer_expressions/filter.dart';
