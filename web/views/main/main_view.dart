@@ -12,8 +12,8 @@ import 'package:polymer_expressions/filter.dart';
 class MainView extends PolymerElement {
 
   // constants
-  @observable int MIN_NUM = 1;
-  @observable int MAX_NUM = 10;
+  static const int MIN_NUM = 1;
+  static const int MAX_NUM = 10;
   static const String DEFAULT_MESSAGE_STATE = "label-default";
   static const String ERROR_MESSAGE_STATE = "label-danger";
   static const String WIN_MESSAGE_STATE = "label-success";
@@ -140,6 +140,10 @@ class MainView extends PolymerElement {
   void submit(Event event, var detail, Element target) {
     event.preventDefault();
   }
+
+  // a few getters to make binding to the consts possible
+  int get min_num => MIN_NUM;
+  int get max_num => MAX_NUM;
 
   // this lets the global CSS bleed through into the Shadow DOM of this element
   bool get applyAuthorStyles => true;
