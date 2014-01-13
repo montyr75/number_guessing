@@ -129,7 +129,7 @@ class MainView extends PolymerElement {
 
   void resetInput() {
     // get a reference to element with "guess-input" ID, then clear its value and set keyboard focus on it
-    $['guess-input'] as InputElement
+    ($['guess-input'] as InputElement)
       ..value = ""
       ..focus();
 
