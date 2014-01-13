@@ -1,3 +1,8 @@
+body {
+  background-color: #F8F8F8;
+  margin: 15px;
+}
+
 .box-container {
   width: 475px;
   border: 1px solid #ccc;
@@ -6,7 +11,7 @@
 }
 
 .btn {
-  cursor: default !important;
+  cursor: default;
 }
 
 #guess-input {
@@ -29,4 +34,4 @@ button {
 
 form {
   margin-top: 10px;
-})
+}
