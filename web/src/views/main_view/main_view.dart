@@ -144,8 +144,5 @@ class MainView extends PolymerElement {
   // a few getters to make binding to the consts possible
   int get min_num => MIN_NUM;
   int get max_num => MAX_NUM;
-
-  // this lets the global CSS bleed through into the Shadow DOM of this element
-  bool get applyAuthorStyles => true;
 }
 
