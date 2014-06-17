@@ -20,7 +20,7 @@ class MainView extends PolymerElement {
 
   // strings
   static const String ENTER_GUESS = "Enter a guess.";
-  static const String WIN = "You win! Fuckin' studly mind-reader, you.";
+  static const String WIN = "You win! You studly mind-reader, you.";
   static const String LOW = "Ummmm, no. That guess is too low.";
   static const String HIGH = "Whoa, settle down there, pardner! Too high!";
   static const String INPUT_ERROR = "What the...? That's not a whole number, turd bomb!";
@@ -48,9 +48,9 @@ class MainView extends PolymerElement {
 
   // this function is called when the Polymer element enters the view
   // the @override metatag marks it (optionally) as an overridden inherited function
-  @override void enteredView() {
-    super.enteredView();
-    print("MainView::enteredView()");
+  @override void attached() {
+    super.attached();
+    print("MainView::attached()");
 
     newGame();
   }

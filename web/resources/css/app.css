@@ -15,25 +15,3 @@ body {
 .btn {
   cursor: default;
 }
-
-#guess-input {
-  width: 50px;
-  text-align: right;
-  margin: 0;
-}
-
-button {
-  margin-right: 10px;
-}
-
-.numeric-data {
-  text-align: right !important;
-}
-
-.instructions {
-  font-weight: bold;
-}
-
-form {
-  margin-top: 10px;
-}

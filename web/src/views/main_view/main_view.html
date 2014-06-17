@@ -1,7 +1,31 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
 <polymer-element name="main-view">
   <template>
+    <link rel="stylesheet" href="../../../resources/css/app.css">
+
     <style>
-      @import "resources/css/app.css";
+      #guess-input {
+        width: 50px;
+        text-align: right;
+        margin: 0;
+      }
+
+      button {
+        margin-right: 10px;
+      }
+
+      .numeric-data {
+        text-align: right !important;
+      }
+
+      .instructions {
+        font-weight: bold;
+      }
+
+      form {
+        margin-top: 10px;
+      }
     </style>
 
     <h1>Number Guessing</h1>

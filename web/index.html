@@ -7,14 +7,18 @@
     
     <title>Number Guessing</title>
     
-    <!-- import CSS -->
-    <link rel="stylesheet" href="resources/css/app.css">
+    <!-- import polyfills -->
+    <script src="packages/web_components/platform.js"></script>
+    <script src="packages/web_components/dart_support.js"></script>
 
     <!-- import custom element HTML -->
     <link rel="import" href="src/views/main_view/main_view.html">
-    
+
+    <!-- import CSS -->
+    <link rel="stylesheet" href="resources/css/app.css">
+
+    <!-- initialize Polymer -->
     <script type="application/dart">export 'package:polymer/init.dart';</script>
-    <script src="packages/browser/dart.js"></script>
   </head>
 
   <body>
