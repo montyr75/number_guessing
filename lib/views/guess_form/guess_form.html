@@ -1,0 +1,22 @@
+<style>
+  paper-input {
+    width: 50px;
+    text-align: center;
+    margin-right: 5px;
+  }
+
+  paper-button {
+    text-transform: none;
+    cursor: default;
+  }
+</style>
+
+<form #guessForm="ngForm" class="layout horizontal center">
+  <paper-input #guessInput type="text" [(ngModel)]="guess" ngControl="guessInputCtrl" ngDefaultControl
+               required allowed-pattern="[0-9]" maxlength="3"
+               (keyup.enter)="makeGuess(true)">
+  </paper-input>
+  <paper-button raised [disabled]="!guessForm.form.valid" (click)="makeGuess()">
+    Guess <paper-badge [label]="guesses"></paper-badge>
+  </paper-button>
+</form>

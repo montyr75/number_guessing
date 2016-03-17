@@ -1,7 +1,34 @@
 name: number_guessing
+version: 0.0.1
 description: A number guessing game.
+
+environment:
+  sdk: '>=1.13.0 <2.0.0'
+
 dependencies:
-    polymer: ">=0.11.0-dev.4"
+  angular2: ^2.0.0-beta.9
+  browser: ^0.10.0
+  polymer: ^1.0.0-rc.15
+  polymer_elements: ^1.0.0-rc.8
+  web_components: ^0.12.0
+  logging: any
+  intl: any
+  dart_to_js_script_rewriter: ^1.0.1
+
 transformers:
 - polymer:
     entry_points: web/index.html
+- angular2:
+    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    - 'package:angular2/common.dart#FORM_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
+    entry_points: web/main.dart
+- dart_to_js_script_rewriter
+- $dart2js:
+    $include: '**/*.bootstrap.initialize.dart'
+    minify: true
+    commandLineOptions:
+    - --trust-type-annotations
+    - --trust-primitives
