@@ -1,4 +1,4 @@
 Number Guessing
 ======
 
-Classic number guessing game implemented with Dart, Polymer, and Angular 2.
+Classic number guessing game implemented with Dart, Angular 2 and Polymer.
