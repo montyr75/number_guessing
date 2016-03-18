@@ -16,6 +16,7 @@
                required allowed-pattern="[0-9]" maxlength="3"
                (keyup.enter)="makeGuess(true)">
   </paper-input>
+
   <paper-button raised [disabled]="!guessForm.form.valid" (click)="makeGuess()">
     Guess <paper-badge [label]="guesses"></paper-badge>
   </paper-button>
