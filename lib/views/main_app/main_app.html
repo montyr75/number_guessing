@@ -30,12 +30,17 @@
 
   <div class="fit layout vertical center content">
     <paper-material elevation="1">
-      <p>I'm thinking of a number between {{model.min}} and {{model.max}}, inclusive.</p>
-      <p style="margin-top: -10px;">Can you guess it?</p>
+      <div class="well">
+        <p>I'm thinking of a number between {{model.min}} and {{model.max}}, inclusive.<br>Can you guess it?</p>
+      </div>
 
-      <!--<p>{{message}}</p>-->
+      <guess-form #guessForm [guesses]="model.guesses" [hidden]="model.deviation == 0" (guessed)="onGuess($event)"></guess-form>
 
-      <guess-form [guesses]="model.guesses" [hidden]="model.deviation == 0" (guessed)="onGuess($event)"></guess-form>
+      <div *ngIf="model.deviation != null" style="margin-top: 15px;">
+        <div class="alert alert-success" *ngIf="model.deviation == 0">You win! The number was {{model.target}}. You guessed {{model.guesses}} times.</div>
+        <div class="alert alert-info" *ngIf="model.deviation < 0">You guessed {{model.lastGuess}}. Too high!</div>
+        <div class="alert alert-warning" *ngIf="model.deviation > 0">You guessed {{model.lastGuess}}. Too low!</div>
+      </div>
     </paper-material>
   </div>
 </paper-header-panel>

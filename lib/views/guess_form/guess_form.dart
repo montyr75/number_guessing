@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:angular2/angular2.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer_elements/iron_flex_layout/classes/iron_flex_layout.dart';
@@ -15,6 +17,7 @@ class GuessForm {
   String guess;
   @Input() int guesses = 0;
   @Output() EventEmitter<int> guessed = new EventEmitter<int>();
+
   @ViewChild('guessForm') NgForm guessForm;
   @ViewChild('guessInput') ElementRef guessInput;
 
@@ -31,8 +34,15 @@ class GuessForm {
       guess = null;
 
       if (!enter) {
-        guessInput.nativeElement.focus();
+        setFocus();
       }
     }
+  }
+
+  void setFocus() {
+    _log.info("$runtimeType::setFocus()");
+
+    // allow bindings to propagate before setting focus
+    Timer.run(() => guessInput.nativeElement.focus());
   }
 }

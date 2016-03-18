@@ -11,7 +11,7 @@
   }
 </style>
 
-<form #guessForm="ngForm" class="layout horizontal center">
+<form #guessForm="ngForm" class="layout horizontal center center-justified">
   <paper-input #guessInput type="text" [(ngModel)]="guess" ngControl="guessInputCtrl" ngDefaultControl
                required allowed-pattern="[0-9]" maxlength="3"
                (keyup.enter)="makeGuess(true)">
