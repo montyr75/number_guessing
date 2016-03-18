@@ -1,6 +1,6 @@
 name: number_guessing
 version: 0.0.1
-description: A number guessing game.
+description: Classic number guessing game implemented with Dart, Angular 2 and Polymer.
 
 environment:
   sdk: '>=1.13.0 <2.0.0'
