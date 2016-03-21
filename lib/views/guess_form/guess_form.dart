@@ -25,7 +25,7 @@ class GuessForm {
     _log.info("$runtimeType()");
   }
 
-  void makeGuess([bool enter = false]) {
+  void submit([bool enter = false]) {
     _log.info("$runtimeType::makeGuess() -- $guess");
 
     if (guessForm.form.valid) {

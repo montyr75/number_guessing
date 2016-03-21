@@ -12,12 +12,13 @@
 </style>
 
 <form #guessForm="ngForm" class="layout horizontal center center-justified">
-  <paper-input #guessInput type="text" [(ngModel)]="guess" ngControl="guessInputCtrl" ngDefaultControl
+  <paper-input #guessInput type="text" ngDefaultControl
+               [(ngModel)]="guess" ngControl="guessInputCtrl"
                required allowed-pattern="[0-9]" maxlength="3"
-               (keyup.enter)="makeGuess(true)">
+               (keyup.enter)="submit(true)">
   </paper-input>
 
-  <paper-button raised [disabled]="!guessForm.form.valid" (click)="makeGuess()">
+  <paper-button raised [disabled]="!guessForm.form.valid" (click)="submit()">
     Guess <paper-badge [label]="guesses"></paper-badge>
   </paper-button>
 </form>
