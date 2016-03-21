@@ -19,10 +19,9 @@ What might such a thing look like? Well, if you were to create a form that simpl
     <dom-module id="employee-form">
       <template>
         <form id="form" is="iron-form">
-          <paper-input name="name" label="Name" required>
-                       value="{{employeeName}}"
+          <paper-input label="Name" value="{{employeeName}}" required>
           </paper-input>
-          <paper-button on-tap="submit">Pay</paper-button>
+          <paper-button on-tap="submit">Submit</paper-button>
         </form>
       </template>
     </dom-module>
@@ -50,7 +49,7 @@ What might such a thing look like? Well, if you were to create a form that simpl
       }
     }
 
-We won't go into great detail about how Polymer forms work. The point here is that within the confines of a custom Polymer element, it's easy to make them work well. The `<paper-input`'s `value` attribute sets up a two-way data binding connection with the `employeeName` property of EmployeeForm, so anything the user types is automatically mirrored there. Clicking the `<paper-button>` calls EmployeeForm's `submit()` method, which fires a custom event called `new-employee` with the new employee's name as the payload.
+We won't go into great detail about how Polymer forms work. The point here is that within the confines of a custom Polymer element, it's easy to make them work well. The `<paper-input>`'s `value` attribute sets up a two-way data binding connection with the `employeeName` property of EmployeeForm, so anything the user types is automatically mirrored there. Clicking the `<paper-button>` calls EmployeeForm's `submit()` method, which fires a custom event called `new-employee` with the new employee's name as the payload.
 
 Now, to use this form in your Angular app, you could do something like this:
 
@@ -132,6 +131,8 @@ HTML's `<input>` element is a bit limited, though. For instance, what if we don'
 ## Polymer to the Rescue
 Built-in styling with [Material Design](https://www.google.com/design/spec/material-design)? It's there. Advanced validation features? Yep, those too. Ripple effects and cool animation? All there.
 
+![Guess a number.](http://i.imgur.com/4TT6TH8.png)
+
 Let's assume you're sold on the advantages of using Polymer controls in your Angular form. Do they work? Are there problems? The answer to both questions is "Yes."
 
 ### Problems
@@ -172,7 +173,7 @@ It turns out that the Angular devs have given us what we need to fix most of thi
 
 [The game](https://github.com/montyr75/number_guessing_) uses a form component template much like this one. The `<form>` is laid out using Polymer's iron-flex-layout classes, and there's a little bit of styling to keep things tame.
 
-For the most part, we're back in business, thanks to the `ngDefaultControl` attribute on `<paper-input>`. One thing we don't get back is the `ngSubmit` event, but we don't really need it, as we can simply call `submit()` in response to control events. The `<paper-input>`'s `allowed-pattern` and `maxlength` attributes stop the user from entering anything crazy, and if we wanted to, we could add `autoValidate` to make it self-apply styling for bad values. Note the use of `(keyup.enter)` on the input control, a great Angular shorthand for responding to the <kbd>Enter</kbd> key.
+For the most part, we're back in business, thanks to the `ngDefaultControl` attribute on `<paper-input>`. One thing we don't get back is the `ngSubmit` event, but we don't really need it, as we can simply call `submit()` in response to control events. The `<paper-input>`'s `allowed-pattern` and `maxlength` attributes stop the user from entering anything crazy, and if we wanted to, we could add `autoValidate` to make it self-apply styling for bad values, or a `label` attribute to get a nifty floating label. Note the use of `(keyup.enter)` on the input control, a great Angular shorthand for responding to the <kbd>Enter</kbd> key.
 
 And here's the component class:
 
