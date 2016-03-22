@@ -136,7 +136,7 @@ Built-in styling with [Material Design](https://www.google.com/design/spec/mater
 Let's assume you're sold on the advantages of using Polymer controls in your Angular form. Do they work? Are there problems? The answer to both questions is "Yes."
 
 ### Problems
-Out of the box, Polymer's paper elements aren't designed to interact with `NgForm`, `NgControl`, or even `NgModel`. So if you just replace your controls with a `<paper-input>` and a `<paper-button>`, you'll find that nothing behaves as you'd like. No two-way binding, no validation integration with the form, no `ngSubmit` event, and your dog will stop coming when you call. Exceptions will be thrown! It's a mess.
+Out of the box, Polymer's paper elements aren't designed to interact with `NgForm`, `NgControl`, or even `NgModel`. If you just replace your controls with a `<paper-input>` and a `<paper-button>`, you'll find that nothing behaves as you'd like. No two-way binding, no validation integration with the form, no `ngSubmit` event, and your dog will stop coming when you call. Exceptions will be thrown! It's a mess.
 
 A standard developer would give up right there and go cry to Bootstrap, but we 10x developers persevere in the face of adversity, right?
  
