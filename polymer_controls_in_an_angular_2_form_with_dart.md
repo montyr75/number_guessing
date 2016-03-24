@@ -2,7 +2,7 @@ I've written before about using [Dart, Angular 2, and Polymer Together](https://
 
 [Polymer](https://www.polymer-project.org/) and [Angular 2](https://angular.io) each have their own form validation routines, their own version of data binding. How can we make these things work together? In this article, I'll talk about a few approaches, then show you the simplest way to make [paper-input](https://elements.polymer-project.org/elements/paper-input) and [paper-button](https://elements.polymer-project.org/elements/paper-button), the workhorses of Polymer forms, cooperate with Angular's validation and data-binding structures.
 
-> *Note:* If you'd like, you can check out my simple [number guessing game](https://github.com/montyr75/number_guessing_) on GitHub that uses this article's techniques. Sometimes it's better to see it in action.
+> *Note:* If you'd like, you can check out my simple [number guessing game](https://github.com/montyr75/number_guessing) on GitHub that uses this article's techniques. Sometimes it's better to see it in action.
 
 The code was tested with Dart SDK 1.15.0, Polymer Dart 1.0.0-rc.15, and Angular 2.0.0-beta.11.
 
@@ -29,7 +29,7 @@ What might such a thing look like? Well, if you were to create a form that simpl
 **employee_form.dart**
 
     @HtmlImport('employee_form.html')
-    library my_project_.lib.checkout_form;
+    library my_project.lib.checkout_form;
     
     import 'dart:html';
     import 'package:polymer/polymer.dart';
@@ -171,7 +171,7 @@ It turns out that the Angular devs have given us what we need to fix most of thi
       </paper-button>
     </form>
 
-[The game](https://github.com/montyr75/number_guessing_) uses a form component template much like this one. The `<form>` is laid out using Polymer's iron-flex-layout classes, and there's a little bit of styling to keep things tame.
+[The game](https://github.com/montyr75/number_guessing) uses a form component template much like this one. The `<form>` is laid out using Polymer's iron-flex-layout classes, and there's a little bit of styling to keep things tame.
 
 For the most part, we're back in business, thanks to the `ngDefaultControl` attribute on `<paper-input>`. One thing we don't get back is the `ngSubmit` event, but we don't really need it, as we can simply call `submit()` in response to control events. The `<paper-input>`'s `allowed-pattern` and `maxlength` attributes stop the user from entering anything crazy, and if we wanted to, we could add `autoValidate` to make it self-apply styling for bad values, or a `label` attribute to get a nifty floating label. Note the use of `(keyup.enter)` on the input control, a great Angular shorthand for responding to the <kbd>Enter</kbd> key.
 
