@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:angular2/angular2.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer_elements/iron_flex_layout/classes/iron_flex_layout.dart';
@@ -31,7 +33,8 @@ class MainApp implements AfterViewInit {
   void ngAfterViewInit() {
     _log.info("$runtimeType::ngAfterViewInit()");
 
-    newGame();
+    // delay to avoid "Expression has changed" Angular exception
+    Timer.run(newGame);
   }
 
   void newGame() {

@@ -15,7 +15,7 @@ class GuessForm {
   final Logger _log;
 
   String guess;
-  @Input() int guesses = 0;
+  @Input() int guesses;
   @Output() final EventEmitter<int> guessed = new EventEmitter<int>();
 
   @ViewChild('guessForm') NgForm guessForm;
