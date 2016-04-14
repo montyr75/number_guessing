@@ -43,6 +43,6 @@ class GuessForm {
     _log.info("$runtimeType::setFocus()");
 
     // allow bindings to propagate before setting focus
-    Timer.run(() => guessInput.nativeElement.focus());
+    Timer.run(guessInput.nativeElement.focus);
   }
 }
